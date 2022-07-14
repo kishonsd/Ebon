@@ -1,14 +1,14 @@
 //
-//  EbonTests.swift
-//  EbonTests
+//  RevealTests.swift
+//  RevealTests
 //
 //  Created by kishon daniels on 7/1/22.
 //
 
 import XCTest
-@testable import Ebon
+@testable import Reveal
 
-class EbonTests: XCTestCase {
+class RevealTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

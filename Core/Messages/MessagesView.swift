@@ -1,6 +1,6 @@
 //
 //  MessagesView.swift
-//  Ebon
+//  Reveal
 //
 //  Created by kishon daniels on 7/1/22.
 //

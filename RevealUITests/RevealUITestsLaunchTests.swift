@@ -1,13 +1,13 @@
 //
-//  EbonUITestsLaunchTests.swift
-//  EbonUITests
+//  RevealUITestsLaunchTests.swift
+//  RevealUITests
 //
 //  Created by kishon daniels on 7/1/22.
 //
 
 import XCTest
 
-class EbonUITestsLaunchTests: XCTestCase {
+class RevealUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

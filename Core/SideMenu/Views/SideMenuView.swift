@@ -1,6 +1,6 @@
 //
 //  SideMenuView.swift
-//  Ebon
+//  Reveal
 //
 //  Created by kishon daniels on 7/2/22.
 //
