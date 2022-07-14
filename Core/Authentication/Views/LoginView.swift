@@ -42,6 +42,7 @@ struct LoginView: View {
                         .foregroundColor(Color(.systemBlue))
                         .padding(.top)
                         .padding(.bottom, 24)
+            
                 }
             }
             
