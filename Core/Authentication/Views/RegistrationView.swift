@@ -10,9 +10,10 @@ import SwiftUI
 struct RegistrationView: View {
     @State private var email = ""
     @State private var username = ""
+    @State private var fullname = ""
     @State private var password = ""
-    @State private var confirmPassword = ""
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
       VStack{
@@ -24,19 +25,23 @@ struct RegistrationView: View {
               
               CustomInputField(imageName: "person",
                                 placeholderText: "Username",
-                                text: $password)
+                                text: $username)
               
+              CustomInputField(imageName: "person",
+                                placeholderText: "Full Name",
+                                text: $fullname)
               CustomInputField(imageName: "lock",
-                                placeholderText: "Password",
-                                text: $email)
-              CustomInputField(imageName: "lock",
-                                placeholderText: "Confirm Password",
-                                text: $email)
+                               placeholderText: "Password",
+                               isSecureField: true,
+                               text: $password)
           }
           .padding(32)
           
           Button {
-              print("Sign in here...")
+              viewModel.register(withEmail: email,
+                                 password: password,
+                                 fullname: fullname,
+                                 username: username)
           } label: {
               Text("Sign In")
                   .font(.headline)

@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         //Parent container
@@ -23,8 +24,9 @@ struct LoginView: View {
                                   placeholderText: "Email",
                                   text: $email)
                 CustomInputField(imageName: "lock",
-                                  placeholderText: "Password",
-                                  text: $password)
+                                 placeholderText: "Password",
+                                 isSecureField: true,
+                                 text: $password)
                 
             }
             .padding(.horizontal, 32)
@@ -47,7 +49,7 @@ struct LoginView: View {
             }
             
             Button {
-                print("Sign in here")
+                viewModel.login(withEmail: email, password: password)
             } label: {
                 Text("Sign In")
                     .font(.headline)
