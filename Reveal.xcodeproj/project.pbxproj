@@ -19,6 +19,8 @@
 		42ACAE18286F361E009970FA /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACAE17286F361E009970FA /* MessagesView.swift */; };
 		42ACAE1C286F44F7009970FA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACAE1B286F44F7009970FA /* ProfileView.swift */; };
 		42B6414B2880CCE80096A05E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B6414A2880CCE80096A05E /* AuthViewModel.swift */; };
+		42B6414D28819D7A0096A05E /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B6414C28819D7A0096A05E /* ProfilePhotoSelectorView.swift */; };
+		42B641522881B13F0096A05E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B641512881B13F0096A05E /* ImagePicker.swift */; };
 		42BD0CF8286F1D0000001CD7 /* RevealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BD0CF7286F1D0000001CD7 /* RevealApp.swift */; };
 		42BD0CFA286F1D0000001CD7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BD0CF9286F1D0000001CD7 /* ContentView.swift */; };
 		42BD0CFC286F1D1A00001CD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BD0CFB286F1D1A00001CD7 /* Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		42ACAE17286F361E009970FA /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		42ACAE1B286F44F7009970FA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		42B6414A2880CCE80096A05E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		42B6414C28819D7A0096A05E /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
+		42B641512881B13F0096A05E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		42BD0CF4286F1D0000001CD7 /* Reveal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reveal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BD0CF7286F1D0000001CD7 /* RevealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealApp.swift; sourceTree = "<group>"; };
 		42BD0CF9286F1D0000001CD7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,6 +169,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		42B641502881B1120096A05E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				42B641512881B13F0096A05E /* ImagePicker.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		42BD0CEB286F1D0000001CD7 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +200,7 @@
 		42BD0CF6286F1D0000001CD7 /* Reveal */ = {
 			isa = PBXGroup;
 			children = (
+				42B641502881B1120096A05E /* Utils */,
 				42BD0CF7286F1D0000001CD7 /* RevealApp.swift */,
 				42BD0CF9286F1D0000001CD7 /* ContentView.swift */,
 				42BD0D25286F1DAE00001CD7 /* Core */,
@@ -377,6 +390,7 @@
 			children = (
 				42E872A528734C4100976998 /* LoginView.swift */,
 				42E872A728734C5100976998 /* RegistrationView.swift */,
+				42B6414C28819D7A0096A05E /* ProfilePhotoSelectorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -542,7 +556,9 @@
 				42BD0D3A286F354700001CD7 /* ExploreView.swift in Sources */,
 				42BD0D34286F336F00001CD7 /* MainTabView.swift in Sources */,
 				42C56E3728710BD60049CB10 /* UserRowView.swift in Sources */,
+				42B641522881B13F0096A05E /* ImagePicker.swift in Sources */,
 				42C56E40287133660049CB10 /* SideMenuViewModel.swift in Sources */,
+				42B6414D28819D7A0096A05E /* ProfilePhotoSelectorView.swift in Sources */,
 				42E5F1652870E2CB005367CA /* PostFilterViewModel.swift in Sources */,
 				4262E5582871D3C600BE3BCF /* SideMenuOptionRowView.swift in Sources */,
 				42E872AA28734EDD00976998 /* RoundedShape.swift in Sources */,
