@@ -51,6 +51,7 @@
 		42E872AA28734EDD00976998 /* RoundedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E872A928734EDD00976998 /* RoundedShape.swift */; };
 		42E872B02873AAAB00976998 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E872AF2873AAAB00976998 /* CustomInputField.swift */; };
 		42E872B32873D23500976998 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E872B22873D23500976998 /* AuthHeaderView.swift */; };
+		42E8C468288631BE00E6437C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E8C467288631BE00E6437C /* SearchBar.swift */; };
 		5CF04E0AAB6D0DDC2BDC1865 /* Pods_Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B9565403A397D8E500FC1 /* Pods_Reveal.framework */; };
 		EC4643D8BFB20A4F3A8E9087 /* Pods_Reveal_RevealUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB2FD549897F0EB7E7AA3ED4 /* Pods_Reveal_RevealUITests.framework */; };
 /* End PBXBuildFile section */
@@ -115,6 +116,7 @@
 		42E872A928734EDD00976998 /* RoundedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShape.swift; sourceTree = "<group>"; };
 		42E872AF2873AAAB00976998 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		42E872B22873D23500976998 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
+		42E8C467288631BE00E6437C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchBar.swift; path = Core/Feed/SearchBar.swift; sourceTree = SOURCE_ROOT; };
 		4A2B80546EDB9C0E0D976A54 /* Pods-Reveal-RevealUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reveal-RevealUITests.debug.xcconfig"; path = "Target Support Files/Pods-Reveal-RevealUITests/Pods-Reveal-RevealUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D1B157863A5617ED441B0E3 /* Pods-Reveal-RevealUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reveal-RevealUITests.release.xcconfig"; path = "Target Support Files/Pods-Reveal-RevealUITests/Pods-Reveal-RevealUITests.release.xcconfig"; sourceTree = "<group>"; };
 		67D7E5B1D26F51225804F484 /* Pods-RevealTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevealTests.debug.xcconfig"; path = "Target Support Files/Pods-RevealTests/Pods-RevealTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				4262E55E287207A300BE3BCF /* TextArea.swift */,
 				42E872A928734EDD00976998 /* RoundedShape.swift */,
 				42E872AF2873AAAB00976998 /* CustomInputField.swift */,
+				42E8C467288631BE00E6437C /* SearchBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				42BD0CFA286F1D0000001CD7 /* ContentView.swift in Sources */,
 				42BD0D31286F23BC00001CD7 /* PostsRowView.swift in Sources */,
 				42E872B32873D23500976998 /* AuthHeaderView.swift in Sources */,
+				42E8C468288631BE00E6437C /* SearchBar.swift in Sources */,
 				426496292885F3A2004909B4 /* ExploreViewModel.swift in Sources */,
 				42BD0D2E286F216000001CD7 /* FeedView.swift in Sources */,
 				42BD0CF8286F1D0000001CD7 /* RevealApp.swift in Sources */,
