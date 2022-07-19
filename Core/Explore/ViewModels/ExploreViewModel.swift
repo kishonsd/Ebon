@@ -22,7 +22,6 @@ class ExploreViewModel: ObservableObject {
                 $0.fullname.lowercased().contains(lowercasedQuery)
             })
         }
-        
     }
     let service = UserService()
     
