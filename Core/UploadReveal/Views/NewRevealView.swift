@@ -1,15 +1,19 @@
 //
-//  NewPostView.swift
+//  NewRevealView.swift
 //  Reveal
 //
 //  Created by kishon daniels on 7/3/22.
 //
 
 import SwiftUI
+import Kingfisher
 
-struct NewPostView: View {
+struct NewRevealView: View {
     @State private var caption = ""
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @ObservedObject var viewModel = UploadRevealViewModel()
+    
     var body: some View {
         VStack {
             HStack {
@@ -23,9 +27,9 @@ struct NewPostView: View {
                 Spacer()
                 
                 Button {
-                  print("Post")
+                    viewModel.uploadReveal(withCaption: caption)
             }   label: {
-                 Text("Post")
+                 Text("Reveal")
                     .padding(.horizontal)
                     .padding(.vertical, 8)
                     .background(Color(.systemBlue))
@@ -36,18 +40,28 @@ struct NewPostView: View {
             .padding()
             
             HStack(alignment: .top) {
-                Circle()
-                   .frame(width: 64, height: 64)
+                if let user = authViewModel.currentUser {
+                    KFImage(URL(string: user.profileImageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle() )
+                       .frame(width: 64, height: 64)
+                }
                 
                 TextArea("What's Happening", text: $caption )
             }
             .padding()
         }
+        .onReceive(viewModel.$didUploadReveal) { success in
+            if success {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
 }
 
-struct NewPostView_Previews: PreviewProvider {
+struct NewrevealView_Previews: PreviewProvider {
     static var previews: some View {
-        NewPostView()
+        NewRevealView()
     }
 }

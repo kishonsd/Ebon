@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct ProfileView: View {
-    @State private var selectedFilter: PostFilterViewModel = .posts
+    @State private var selectedFilter: revealFilterViewModel = .reveals
     @Namespace var animation
     @Environment(\.presentationMode) var mode
     private let user: User
@@ -26,9 +26,9 @@ struct ProfileView: View {
             
             userInfoDetails
             
-            postFilterBar
+            revealFilterBar
             
-            postsView
+            revealsView
             
             Spacer()
         }
@@ -142,9 +142,9 @@ extension ProfileView {
         
     }
     
-    var postFilterBar: some View {
+    var revealFilterBar: some View {
         HStack {
-            ForEach(PostFilterViewModel.allCases, id: \.rawValue) { item in
+            ForEach(revealFilterViewModel.allCases, id: \.rawValue) { item in
                 VStack {
                     Text(item.title)
                         .font(.subheadline)
@@ -173,12 +173,12 @@ extension ProfileView {
         .overlay(Divider().offset(x:0, y:16))
     }
     
-    var postsView: some View {
+    var revealsView: some View {
         
         ScrollView {
             LazyVStack {
                 ForEach(0 ... 9, id: \.self) { _ in
-                    PostsRowView()
+                    revealsRowView()
                         .padding()
                 }
             }

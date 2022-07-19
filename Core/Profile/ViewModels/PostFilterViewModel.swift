@@ -1,5 +1,5 @@
 //
-//  PostFilterViewModel.swift
+//  revealFilterViewModel.swift
 //  Reveal
 //
 //  Created by kishon daniels on 7/2/22.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum PostFilterViewModel: Int, CaseIterable {
-    case posts
+enum revealFilterViewModel: Int, CaseIterable {
+    case reveals
     case replies
     case likes
     
     var title: String {
         switch self {
-        case .posts: return "Posts"
+        case .reveals: return "reveals"
         case .replies: return "Replies"
         case .likes: return "Likes"
             

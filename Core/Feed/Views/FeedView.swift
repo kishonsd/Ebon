@@ -9,22 +9,22 @@ import SwiftUI
 
 struct FeedView: View {
     
-    @State private var showNewPostView = false
+    @State private var showNewrevealView = false
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
         ScrollView {
             LazyVStack {
                 ForEach(0 ... 20, id: \.self) { _ in
-                     PostsRowView()
+                     revealsRowView()
                         .padding()
                  }
                }
             }
             Button {
-                showNewPostView.toggle()
+                showNewrevealView.toggle()
             } label: {
-                Image("post")
+                Image("reveal")
                     .resizable()
                     .renderingMode(.template)
                     .frame(width: 28, height: 28)
@@ -34,8 +34,8 @@ struct FeedView: View {
             .foregroundColor(.white)
             .clipShape(Circle())
             .padding()
-            .fullScreenCover(isPresented: $showNewPostView) {
-                NewPostView()
+            .fullScreenCover(isPresented: $showNewrevealView) {
+                NewRevealView()
             }
         }
     }
