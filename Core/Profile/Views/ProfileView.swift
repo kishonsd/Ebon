@@ -9,13 +9,13 @@ import SwiftUI
 import Kingfisher
 
 struct ProfileView: View {
-    @State private var selectedFilter: revealFilterViewModel = .reveals
+    @State private var selectedFilter: RevealFilterViewModel = .reveals
+    @ObservedObject var viewModel: ProfileViewModel
     @Namespace var animation
     @Environment(\.presentationMode) var mode
-    private let user: User
     
     init(user: User) {
-        self.user = user
+        self.viewModel = ProfileViewModel(user: user)
     }
     
     var body: some View {
@@ -49,7 +49,7 @@ struct ProfileView_Previews: PreviewProvider {
 
 extension ProfileView {
     var headerView: some View {
-      
+        
         ZStack(alignment: .bottomLeading) {
             Color(.systemBlue)
                 .ignoresSafeArea()
@@ -65,7 +65,7 @@ extension ProfileView {
                         .offset(x: 16, y: -12)
                 }
                 
-                KFImage(URL(string: user.profileImageUrl))
+                KFImage(URL(string: viewModel.user.profileImageUrl))
                     .resizable()
                     .scaledToFill()
                     .clipShape(Circle())
@@ -75,7 +75,7 @@ extension ProfileView {
         }
         .frame(height:96)
     }
-
+    
     var actionButtons: some View {
         
         HStack(spacing: 12){
@@ -89,7 +89,7 @@ extension ProfileView {
             Button {
                 
             } label: {
-                Text("Edit Profile")
+                Text(viewModel.actionButtonTitle)
                     .font(.subheadline).bold()
                     .frame(width: 120, height: 32)
                     .foregroundColor(.black)
@@ -103,20 +103,20 @@ extension ProfileView {
     var userInfoDetails: some View {
         VStack(alignment: .leading, spacing: 4.0) {
             HStack {
-                Text(user.fullname)
+                Text(viewModel.user.fullname)
                     .font(.title2).bold()
                 
                 Image(systemName: "checkmark.seal.fill")
                     .foregroundColor(Color(.systemBlue))
             }
             
-            Text("@\(user.username)")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+            Text("@\(viewModel.user.username)")
+                .font(.subheadline)
+                .foregroundColor(.gray)
             
-                Text("Your moms favorite villain")
-                    .font(.subheadline)
-                    .padding(.vertical)
+            Text("Your moms favorite villain")
+                .font(.subheadline)
+                .padding(.vertical)
             
             HStack(spacing: 24 ) {
                 HStack {
@@ -124,10 +124,10 @@ extension ProfileView {
                     
                     Text("Gotham, NY")
                 }
-                    HStack {
-                        Image(systemName: "link")
-                        
-                        Text("www.thejoker.com")
+                HStack {
+                    Image(systemName: "link")
+                    
+                    Text("www.thejoker.com")
                 }
             }
             .font(.caption)
@@ -144,7 +144,7 @@ extension ProfileView {
     
     var revealFilterBar: some View {
         HStack {
-            ForEach(revealFilterViewModel.allCases, id: \.rawValue) { item in
+            ForEach(RevealFilterViewModel.allCases, id: \.rawValue) { item in
                 VStack {
                     Text(item.title)
                         .font(.subheadline)
@@ -177,9 +177,9 @@ extension ProfileView {
         
         ScrollView {
             LazyVStack {
-                ForEach(0 ... 9, id: \.self) { _ in
-                    revealsRowView()
-                        .padding()
+                ForEach(viewModel.reveals(forFilter: self.selectedFilter)) { reveal in
+                    RevealsRowView(reveal: reveal)
+                          .padding()
                 }
             }
         }

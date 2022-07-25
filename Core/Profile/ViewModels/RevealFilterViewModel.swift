@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum revealFilterViewModel: Int, CaseIterable {
+enum RevealFilterViewModel: Int, CaseIterable {
     case reveals
     case replies
     case likes
     
     var title: String {
         switch self {
-        case .reveals: return "reveals"
+        case .reveals: return "Reveals"
         case .replies: return "Replies"
         case .likes: return "Likes"
             

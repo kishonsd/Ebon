@@ -10,6 +10,7 @@ import Kingfisher
 
 struct SideMenuView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
+    
     var body: some View {
         
         if let user = authViewModel.currentUser {
@@ -29,7 +30,7 @@ struct SideMenuView: View {
                             .font(.caption)
                             .foregroundColor(.gray)
                     }
-                
+                    
                     UserStatsView()
                         .padding(.vertical)
                 }
@@ -40,7 +41,7 @@ struct SideMenuView: View {
                         NavigationLink {
                             ProfileView(user: user)
                         } label: {
-                        SideMenuOptionRowView(viewModel: viewModel)
+                            SideMenuOptionRowView(viewModel: viewModel)
                             
                         }
                     } else if viewModel == .logout {

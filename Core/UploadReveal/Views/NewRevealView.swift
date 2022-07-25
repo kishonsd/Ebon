@@ -19,23 +19,23 @@ struct NewRevealView: View {
             HStack {
                 Button {
                     presentationMode.wrappedValue.dismiss() 
-            } label: {
-                  Text("Cancel")
-                    .foregroundColor(Color(.systemBlue))
-               }
+                } label: {
+                    Text("Cancel")
+                        .foregroundColor(Color(.systemBlue))
+                }
                 
                 Spacer()
                 
                 Button {
                     viewModel.uploadReveal(withCaption: caption)
-            }   label: {
-                 Text("Reveal")
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                    .background(Color(.systemBlue))
-                    .foregroundColor(.white)
-                    .clipShape(Capsule())
-               }
+                }   label: {
+                    Text("Reveal")
+                        .padding(.horizontal)
+                        .padding(.vertical, 8)
+                        .background(Color(.systemBlue))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                }
             }
             .padding()
             
@@ -45,7 +45,7 @@ struct NewRevealView: View {
                         .resizable()
                         .scaledToFill()
                         .clipShape(Circle() )
-                       .frame(width: 64, height: 64)
+                        .frame(width: 64, height: 64)
                 }
                 
                 TextArea("What's Happening", text: $caption )

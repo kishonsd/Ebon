@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct FeedView: View {
-    
-    @State private var showNewrevealView = false
+    @State private var showNewRevealView = false
+    @ObservedObject var viewModel = FeedViewModel()
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-        ScrollView {
-            LazyVStack {
-                ForEach(0 ... 20, id: \.self) { _ in
-                     revealsRowView()
-                        .padding()
-                 }
-               }
+            ScrollView {
+                LazyVStack {
+                    ForEach(viewModel.reveals) { reveal in
+                        RevealsRowView(reveal: reveal)
+                            .padding()
+                    }
+                }
             }
             Button {
-                showNewrevealView.toggle()
+                showNewRevealView.toggle()
             } label: {
-                Image("reveal")
+                Image("Reveal-50")
                     .resizable()
                     .renderingMode(.template)
                     .frame(width: 28, height: 28)
@@ -34,10 +34,11 @@ struct FeedView: View {
             .foregroundColor(.white)
             .clipShape(Circle())
             .padding()
-            .fullScreenCover(isPresented: $showNewrevealView) {
+            .fullScreenCover(isPresented: $showNewRevealView) {
                 NewRevealView()
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -38,6 +38,8 @@ struct MainTabView: View {
                 .tabItem {
                     Image(systemName: "bell")
                 }.tag(2)
+                .frame(width: 28, height: 28)
+                .padding()
             
             MessagesView()
                 .onTapGesture {

@@ -21,8 +21,8 @@ struct LoginView: View {
             VStack(spacing: 40) {
                 
                 CustomInputField(imageName: "envelope",
-                                  placeholderText: "Email",
-                                  text: $email)
+                                 placeholderText: "Email",
+                                 text: $email)
                 CustomInputField(imageName: "lock",
                                  placeholderText: "Password",
                                  isSecureField: true,
@@ -44,7 +44,7 @@ struct LoginView: View {
                         .foregroundColor(Color(.systemBlue))
                         .padding(.top)
                         .padding(.bottom, 24)
-            
+                    
                 }
             }
             
