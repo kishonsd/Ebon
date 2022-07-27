@@ -9,59 +9,63 @@ import SwiftUI
 import Kingfisher
 
 struct NewRevealView: View {
-    @State private var caption = ""
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var authViewModel: AuthViewModel
-    @ObservedObject var viewModel = UploadRevealViewModel()
+    @Binding var isPresented: Bool
+    @State var captionText: String = ""
+    @ObservedObject var viewModel: UploadRevealViewModel
+    
+    var reveal: Reveal?
+    
+    init(isPresented: Binding<Bool>, reveal: Reveal?) {
+        self._isPresented = isPresented
+        self.viewModel = UploadRevealViewModel(isPresented: isPresented, reveal: reveal)
+    }
     
     var body: some View {
         VStack {
             HStack {
-                Button {
-                    presentationMode.wrappedValue.dismiss() 
-                } label: {
+                Button(action: { isPresented.toggle() }, label: {
                     Text("Cancel")
-                        .foregroundColor(Color(.systemBlue))
-                }
-                
+                        .foregroundColor(.blue)
+                })
                 Spacer()
                 
-                Button {
-                    viewModel.uploadReveal(withCaption: caption)
-                }   label: {
+                Button(action: { viewModel.uploadReveal(caption: captionText) }, label: {
                     Text("Reveal")
+                        .bold()
                         .padding(.horizontal)
                         .padding(.vertical, 8)
-                        .background(Color(.systemBlue))
+                        .background(Color.blue)
                         .foregroundColor(.white)
                         .clipShape(Capsule())
+                })
+            }.padding()
+            
+            if let reveal = reveal {
+                HStack {
+                    Text("Replying to")
+                        .foregroundColor(.gray)
+                    Text("@\(reveal.username)")
+                        .foregroundColor(.blue)
+                    
+                    Spacer()
                 }
+                .font(.system(size: 14))
+                .padding(.leading)
             }
-            .padding()
             
             HStack(alignment: .top) {
-                if let user = authViewModel.currentUser {
-                    KFImage(URL(string: user.profileImageUrl))
-                        .resizable()
-                        .scaledToFill()
-                        .clipShape(Circle() )
-                        .frame(width: 64, height: 64)
-                }
+                KFImage(viewModel.profileImageUrl)
+                    .resizable()
+                    .scaledToFill()
+                    .clipped()
+                    .frame(width: 64, height: 64)
+                    .cornerRadius(32)
                 
-                TextArea("What's Happening", text: $caption )
-            }
-            .padding()
+                TextArea(viewModel.placeholderText, text: $captionText)
+                
+                Spacer()
+            }.padding()
+            Spacer()
         }
-        .onReceive(viewModel.$didUploadReveal) { success in
-            if success {
-                presentationMode.wrappedValue.dismiss()
-            }
-        }
-    }
-}
-
-struct NewrevealView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewRevealView()
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct RevealCell: View {
-    let revel: Reveal
+    let reveal: Reveal
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -43,7 +43,7 @@ struct RevealCell: View {
             .padding(.bottom)
             .padding(.trailing)
             
-            RevealActionView(reveal: reveal)
+            RevealActionsView(reveal: reveal)
             
             Divider()
         }

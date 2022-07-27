@@ -41,7 +41,7 @@ struct RevealDetailView: View {
                     Text("0")
                         .font(.system(size: 14, weight: .semibold))
                     
-                    Text("Retweets")
+                    Text("Rereveals")
                         .font(.system(size: 14))
                         .foregroundColor(.gray)
                 }
