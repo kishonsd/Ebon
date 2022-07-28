@@ -17,7 +17,7 @@ struct CustomTextField: View {
             if text.isEmpty {
                 placeholder
                     .foregroundColor(Color(.init(white: 1, alpha: 0.87)))
-                    .padding()
+                    .padding(.leading, 40)
             }
             
             HStack(spacing: 16) {
@@ -28,6 +28,7 @@ struct CustomTextField: View {
                     .foregroundColor(.white)
                 
                 TextField("", text: $text)
+                    .frame(height: 25)
             
             }
         }

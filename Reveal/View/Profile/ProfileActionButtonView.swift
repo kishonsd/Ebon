@@ -30,7 +30,7 @@ struct ProfileActionButtonView: View {
                     viewModel.user.isFollowed ? viewModel.unfollow() : viewModel.follow()
                 }, label: {
                     Text(viewModel.user.isFollowed ? "Following" : "Follow")
-                        .frame(width: 180, height: 40)
+                        .frame(width: 150, height: 40)
                         .background(Color.blue)
                         .foregroundColor(.white)
                     
@@ -39,7 +39,7 @@ struct ProfileActionButtonView: View {
                 
                 NavigationLink(destination: ChatView(user: viewModel.user), label: {
                     Text("Message")
-                        .frame(width: 180, height: 40)
+                        .frame(width: 150, height: 40)
                         .background(Color.purple)
                         .foregroundColor(.white)
                 })

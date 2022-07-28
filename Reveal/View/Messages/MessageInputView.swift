@@ -20,7 +20,7 @@ struct MessageInputView: View {
                 .padding(.bottom, 8)
             
             HStack {
-                TextField("Message...", text: $messageText)
+                TextField("Message", text: $messageText)
                     .textFieldStyle(PlainTextFieldStyle())
                     .frame(minHeight: 30)
                 
