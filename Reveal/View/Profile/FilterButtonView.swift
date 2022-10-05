@@ -16,7 +16,7 @@ enum RevealFilterOptions: Int, CaseIterable {
     var title: String {
         switch self {
         case .reveals: return "Reveals"
-        case .replies: return "Reveals & Replies"
+        case .replies: return "Replies"
         case .likes: return "Likes"
         }
     }
